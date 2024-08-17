@@ -76,7 +76,6 @@ void insert(array* a)
     int arrPos = pos - 1;
     for (int i = (*a).size - 1; i >= arrPos; i--)
     {
-        printf("i -> %i\n", i); //----------------------------------------------------------
         ((*a).ptr)[i + 1] = ((*a).ptr)[i];
     }
 
@@ -112,7 +111,6 @@ int delete(array* a)
     // Left Shift
     for (int i = pos; i < (*a).size; i++)
     {
-        printf("i -> %i\n", i); //----------------------------------------------------------
         ((*a).ptr)[i - 1] = ((*a).ptr)[i];
     }
 
