@@ -12,11 +12,17 @@ typedef struct sllNode
 node* head = NULL, *newNode;
 int len = 0;
 
+// Create Single Linked List Node and Returns It's Address
+node* getSLLnode()
+{
+    return (node*) malloc(sizeof(node));
+}
+
 // Insertion at The Beginning
 void insertBeginning()
 {
     // newNode Creation
-    newNode = (node*) malloc(sizeof(node));
+    newNode = getSLLnode();
     
     // Node Data 
     printf("Insert Data: ");
@@ -36,20 +42,16 @@ void insertBeginning()
 void insertEnd()
 {
     if (head == NULL)
-    {
         insertBeginning();
-    }
     else
     {
         // Traversing To The End of The Linked List
         node* ptr = head;
         while (ptr -> next != NULL)
-        {
             ptr = ptr -> next;
-        }
 
         // Creating New Node To Append
-        newNode = (node*) malloc(sizeof(node));
+        newNode = getSLLnode();
 
         // Node Data
         printf("Insert Data: ");
@@ -86,18 +88,14 @@ void insertLoc()
     while (error);
     
     if (loc == 1)
-    {
         insertBeginning();
-    }
     else
     {
         for (int i = 1; i < loc; i++, ptr = ptr -> next)
-        {
             prev = ptr;
-        }
         
         // Creating newNode
-        newNode = (node*) malloc(sizeof(node));
+        newNode = getSLLnode();
 
         // Node Data
         printf("Insert Data: ");
@@ -118,9 +116,7 @@ void insertLoc()
 int deleteBeginning()
 {
     if (head == NULL)
-    {
         printf("Linked List is Empty\n");
-    }
     else
     {
         node* tempNext = head -> next;
@@ -137,13 +133,9 @@ int deleteBeginning()
 int deleteEnd()
 {
     if (head == NULL)
-    {
         printf("Linked List is Empty\n");
-    }
     else if (len == 1)
-    {
         return deleteBeginning();
-    }
     else
     {
         node* ptr = head, *prev;
@@ -166,9 +158,7 @@ int deleteEnd()
 int deleteLoc()
 {
     if (head == NULL)
-    {
         printf("Linked List is Empty\n");
-    }
     else
     {
         int loc, error, tempData;
@@ -188,15 +178,11 @@ int deleteLoc()
         while (error);
 
         if (loc == 1)
-        {
             return deleteBeginning();
-        }
         else
         {
             for (int i = 1; i < loc; i++, ptr = ptr -> next)
-            {
                 prev = ptr;
-            }
             
             tempData = ptr -> data;
             prev -> next = ptr -> next;
@@ -213,9 +199,7 @@ int deleteLoc()
 void traverse()
 {
     if (head == NULL)
-    {
         printf("Linked List is Empty\n");
-    }
     else
     {
         node* ptr = head;
@@ -228,6 +212,7 @@ void traverse()
 
 int main() 
 {
+    printf("\n----- Single Linked List -----\n");
     int opNo, data;
     while (1)
     {
