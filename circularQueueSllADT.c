@@ -5,16 +5,16 @@
 typedef struct sllNode {
     int data;
     struct sllNode* next;
-} lqNode;
+} cqNode;
 
 // Global Variable
-lqNode* f, *r;
+cqNode* f, *r;
 int len;
 
 // Create Single Linked List Node and Returns It's Address
-lqNode* getLqNode()
+cqNode* getcqNode()
 {
-    return (lqNode*) malloc(sizeof(lqNode));
+    return (cqNode*) malloc(sizeof(cqNode));
 }
 
 // is Empty?
@@ -31,7 +31,7 @@ int isEmpty()
 void enqueue()
 {
     // Creating newNode
-    lqNode* newNode = getLqNode();
+    cqNode* newNode = getcqNode();
 
     if (f == NULL)
         // Setting up The Front Pointer for The Very Front Node
@@ -64,7 +64,7 @@ int dequeue()
         int element = f -> data;
 
         // Temp Next 
-        lqNode* tempNext = f -> next;
+        cqNode* tempNext = f -> next;
 
         // Delete Front Most Node
         free(f);
@@ -119,7 +119,7 @@ int display()
         printf("\n!!!!! Circular Queue is Empty !!!!!\n");
     else
     {
-        lqNode* ptr = f;
+        cqNode* ptr = f;
         for (int i = len; i > 0; i--, ptr = ptr -> next)
             printf("%i\n", ptr -> data);
     }
