@@ -94,6 +94,7 @@ void display(btNode* parent)
     }
 }
 
+// Search
 int search(btNode* parent, int num)
 {
     if (parent == NULL)
