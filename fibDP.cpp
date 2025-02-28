@@ -1,8 +1,10 @@
 #include <iostream>
 using namespace std;
 
+// Cache - Stores Result of Recurring Sub-Problems
 int cache[100];
 
+// Fibonacci Value using Dynamic Programming
 int fibDP(int n)
 {
     // Terminating Condition
